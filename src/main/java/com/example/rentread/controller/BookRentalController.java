@@ -39,14 +39,12 @@ public class BookRentalController {
         User user = userService.findByEmail(loginRequest.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
     
-        // Check if the provided password matches the stored password
         boolean isPasswordValid = passwordEncoder.matches(loginRequest.getPassword(), user.getPassword());
         System.out.println(isPasswordValid);
         if (!isPasswordValid) {
             throw new RuntimeException("Invalid email or password");
         }
     
-        // Return success message
         return "Login successful for user: " + user.getEmail();
     }
     

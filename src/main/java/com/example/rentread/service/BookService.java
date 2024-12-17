@@ -23,7 +23,7 @@ public class BookService {
     }
 
     public Book createBook(Book book) {
-        book.setAvailabilityStatus(AvailabilityStatus.AVAILABLE); // Default status is AVAILABLE
+        book.setAvailabilityStatus(AvailabilityStatus.AVAILABLE);
         return bookRepository.save(book);
     }
 
